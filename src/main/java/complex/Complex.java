@@ -7,10 +7,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Complex {
 
-  final Foo foo;
+  public Foo foo;
 
   @Autowired
   public Complex(Foo foo) {
     this.foo = foo;
+  }
+
+  public Foo getFoo() {
+    return foo;
   }
 }
