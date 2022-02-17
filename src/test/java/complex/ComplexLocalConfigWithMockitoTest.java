@@ -1,22 +1,28 @@
 package complex;
 
-
-import config.ComplexConfig;
 import foo.Foo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
-// NOTICE THAT WE ARE USING COMPLEX AND FOO PACKAGE, NO NEED... WE ARE WASTING RESOURCES
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@ContextConfiguration(classes = ComplexConfig.class)
-public class ComplexTestWithMock {
+@ContextConfiguration(classes = ComplexLocalConfigWithMockitoTest.ComplexConfigTestLocalWithMockito.class)
+public class ComplexLocalConfigWithMockitoTest {
+
+  // NOTICE THAT WE DO NOT NEED TO SCAN FOO
+  @Configuration
+  @ComponentScan({"complex"})
+  static class ComplexConfigTestLocalWithMockito {
+
+  }
 
   @MockBean
   Foo foo;

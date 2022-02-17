@@ -1,34 +1,27 @@
-package complex;
+package bar;
 
-import foo.Foo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@ContextConfiguration(classes = ComplexTestLocalConfigWithMockito.ComplexConfigTestLocalWithMockito.class)
-public class ComplexTestLocalConfigWithMockito {
+@ContextConfiguration(classes = BarLocalConfigTest.BarConfigTest.class)
+class BarLocalConfigTest {
 
-  // NOTICE THAT WE DO NOT NEED TO SCAN FOO
   @Configuration
-  @ComponentScan({"complex"})
-  static class ComplexConfigTestLocalWithMockito {
+  @ComponentScan("bar")
+  static class BarConfigTest {
 
   }
 
-  @MockBean
-  Foo foo;
-
   @Autowired
-  Complex complex;
+  Bar bar;
 
   @Test
   void testsWorking() {
@@ -37,12 +30,11 @@ public class ComplexTestLocalConfigWithMockito {
 
   @Test
   void fooNotNull() {
-    assertThat(complex).isNotNull();
+    assertThat(bar).isNotNull();
   }
 
   @Test
   void fooName() {
-    when(foo.getName()).thenReturn("hello-foo-mock");
-    assertThat(complex.getFoo().getName()).isEqualTo("hello-foo-mock");
+    assertThat(bar.name).isEqualTo("hello-bar-test");
   }
 }

@@ -1,8 +1,6 @@
 package fooandbar;
 
 import bar.Bar;
-import config.BarConfig;
-import config.FooConfig;
 import foo.Foo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@ContextConfiguration(classes = {FooAndBarTestLocalConfig.FooAndBarConfigTest.class})
-class FooAndBarTestLocalConfig {
-
+@ContextConfiguration(classes = {FooAndBarLocalConfigTest.FooAndBarConfigTest.class})
+class FooAndBarLocalConfigTest {
 
   @Configuration
   @ComponentScan({"foo", "bar"})

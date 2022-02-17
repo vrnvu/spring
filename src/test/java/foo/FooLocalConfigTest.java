@@ -11,8 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@ContextConfiguration(classes = FooTestLocalConfig.FooConfigTest.class)
-class FooTestLocalConfig {
+@ContextConfiguration(classes = FooLocalConfigTest.FooConfigTest.class)
+class FooLocalConfigTest {
 
   @Configuration
   @ComponentScan("foo")
