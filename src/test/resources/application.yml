@@ -1,2 +1,5 @@
 foo:
   name: "hello-foo-test"
+
+bar:
+  name: "hello-bar-test"
