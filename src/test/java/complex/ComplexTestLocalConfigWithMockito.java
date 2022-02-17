@@ -17,8 +17,9 @@ import static org.mockito.Mockito.when;
 @ContextConfiguration(classes = ComplexTestLocalConfigWithMockito.ComplexConfigTestLocalWithMockito.class)
 public class ComplexTestLocalConfigWithMockito {
 
+  // NOTICE THAT WE DO NOT NEED TO SCAN FOO
   @Configuration
-  @ComponentScan({"complex", "foo"})
+  @ComponentScan({"complex"})
   static class ComplexConfigTestLocalWithMockito {
 
   }

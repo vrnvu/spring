@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
+// NOTICE THAT WE ARE USING COMPLEX AND FOO PACKAGE, NO NEED... WE ARE WASTING RESOURCES
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @ContextConfiguration(classes = ComplexConfig.class)
 public class ComplexTestWithMock {
